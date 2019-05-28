@@ -349,10 +349,11 @@ window.onload = () => {
   unlayer.init({
     id: 'editor'
   })
-  unlayer.setMergeTags([
-    { name: 'First Name', value: '{{first_name}}' },
-    { name: 'Last Name', value: '{{last_name}}' }
-  ])
-  unlayer.setMergeTagsConfig()
-  console.log(unlayer)
+  const merge = [
+    ...data.addressMergeFields,
+    ...data.customerMergeFields,
+    ...data.receiptMergeFields,
+    ...data.receiptProductsMergeFields
+  ].map(field => ({ name: field.display, value: `{{${field.html}}}` }))
+  unlayer.setMergeTags(merge)
 }
