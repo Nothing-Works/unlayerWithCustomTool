@@ -353,5 +353,6 @@ window.onload = () => {
     { name: 'First Name', value: '{{first_name}}' },
     { name: 'Last Name', value: '{{last_name}}' }
   ])
+  unlayer.setMergeTagsConfig()
   console.log(unlayer)
 }
